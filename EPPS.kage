@@ -11,9 +11,13 @@ package main
 // }
 
 // testing set to white
-func Fragment(dstPos vec4, srcPos vec2, color vec4) vec4 {
+func Fragment(dstPos vec4, srcPos vec2) vec4 {
+    dstcolor := imageSrc1At(srcPos)
+    origin := imageSrc0Origin()
+
+    palletPos := vec2(origin.x+dstcolor.r*255,origin.y+dstcolor.g*255)
+
     
-    merge := vec4(0.5,0.3,1,color.a)
-    
-	return merge
+    // return dstcolor
+	return imageSrc0At(palletPos)
 }
