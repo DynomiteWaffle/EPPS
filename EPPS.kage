@@ -2,22 +2,15 @@
 
 package main
 
-// func Fragment(destPos vec4) vec4 {
-//     spritepos := vec2(destPos.x,destPos.y)
-//     spritecolor := imageSrc1At(spritepos)
-//     palletpos := vec2(spritecolor.r,spritecolor.g)
-    
-// 	return imageSrc0At(palletpos)
-// }
-
-// testing set to white
 func Fragment(dstPos vec4, srcPos vec2) vec4 {
+    // get positons
     dstcolor := imageSrc1At(srcPos)
-    origin := imageSrc0Origin()
+    origin := imageSrc0Origin() // used to center on pallet image
 
+    // gets pallet color
     palletPos := vec2(origin.x+dstcolor.r*255,origin.y+dstcolor.g*255)
 
     
-    // return dstcolor
+    // return pallet color
 	return imageSrc0At(palletPos)
 }
