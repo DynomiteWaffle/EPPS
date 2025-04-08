@@ -2,7 +2,18 @@
 
 package main
 
-func Fragment(srcPos vec2) vec4 {
-    color := imageSrc1At(srcPos)
-	return imageSrc1At(color)
+// func Fragment(destPos vec4) vec4 {
+//     spritepos := vec2(destPos.x,destPos.y)
+//     spritecolor := imageSrc1At(spritepos)
+//     palletpos := vec2(spritecolor.r,spritecolor.g)
+    
+// 	return imageSrc0At(palletpos)
+// }
+
+// testing set to white
+func Fragment(dstPos vec4, srcPos vec2, color vec4) vec4 {
+    
+    merge := vec4(0.5,0.3,1,color.a)
+    
+	return merge
 }
